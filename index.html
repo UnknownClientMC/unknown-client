@@ -2,157 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0e13">
-<meta name="description" content="UNKNOWN CLIENT by Aadrash — discover Minecraft mods, shaders, resource packs and modpacks.">
-<title>UNKNOWN CLIENT | Owner Aadrash</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNKNOWN CLIENT — Minecraft Mods</title>
 <style>
-:root{color-scheme:dark;--bg:#0b0e13;--panel:#141b25;--panel2:#1b2532;--green:#7cf0b0;--text:#f4f7fb;--muted:#a4b1c4;--border:#2b3748}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Arial,sans-serif}
-a{color:inherit}header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 5%;background:#10151d;border-bottom:1px solid var(--border)}
-.brand{color:var(--green);font-size:20px;font-weight:900;letter-spacing:1px}.owner{text-align:right;color:var(--muted);font-size:12px;line-height:1.7}.owner strong{color:var(--green)}
-nav{display:flex;gap:18px;flex-wrap:wrap;padding:13px 5%;border-bottom:1px solid var(--border)}nav a{color:var(--muted);text-decoration:none;font-size:14px}nav a:hover{color:var(--green)}
-main{max-width:1100px;margin:auto;padding:26px 16px}.hero{padding:32px 22px;border:1px solid #315342;border-radius:20px;background:linear-gradient(135deg,#203d32,#17212f 72%)}
-.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:2px}h1{font-size:clamp(34px,8vw,54px);line-height:1.08;margin:14px 0}h1 span{color:var(--green)}p{color:var(--muted);line-height:1.6}.hero p{max-width:570px}
-.btn{display:inline-block;padding:11px 14px;border:1px solid var(--border);border-radius:9px;background:var(--panel2);color:white;text-decoration:none;font-weight:750;cursor:pointer;font-size:14px}.btn.primary{background:var(--green);border-color:var(--green);color:#08120c}.btn:disabled{opacity:.5;cursor:not-allowed}
-.section{margin-top:34px}.heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}h2{font-size:23px}.controls{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
-input,select{min-width:0;padding:12px;border:1px solid var(--border);border-radius:9px;background:var(--panel);color:white;font-size:15px}input{flex:1;width:150px}select{max-width:100%}
-#status{font-size:13px;margin:15px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{min-width:0;overflow:hidden;background:var(--panel);border:1px solid var(--border);border-radius:14px}.card img{display:block;width:100%;height:135px;object-fit:cover;background:var(--panel2)}.card-body{padding:15px}.card h3{margin:10px 0;font-size:18px}.card p{font-size:13px;overflow-wrap:anywhere}.tag{display:inline-block;padding:5px 8px;border-radius:6px;background:#233c31;color:var(--green);font-size:11px;font-weight:800}
-.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.card-actions .btn{flex:1;text-align:center}.tiny{font-size:11px;color:var(--muted)}.launcher{padding:22px;border:1px solid var(--border);border-radius:15px;background:linear-gradient(140deg,#19232f,#111720)}.launcher-status{color:var(--green);font-size:12px;font-weight:800}
-footer{margin-top:40px;padding:28px 16px;text-align:center;border-top:1px solid var(--border);background:#10151d}footer strong{color:var(--green)}footer p{font-size:12px}
-@media(max-width:480px){header{padding:15px 12px}.brand{font-size:17px}nav{gap:13px;padding:12px}main{padding:20px 12px}.hero{padding:25px 17px}.controls input,.controls select{width:100%}}
+:root{--bg:#050a10;--panel:#09121c;--panel2:#0d1925;--line:#1a2b3b;--muted:#9aabba;--text:#f3f7fb;--green:#00f0a0;--green2:#00c982;--blue:#48a8ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 45% -30%,#12302d 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.45 Inter,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}
+.topbar{height:90px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:24px;padding:14px 22px;background:#060c13ee;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;min-width:365px}.logo{width:58px;height:58px;border:4px solid var(--green);color:var(--green);display:grid;place-items:center;font-size:35px;font-weight:900;transform:rotate(0);clip-path:polygon(50% 0,95% 24%,95% 76%,50% 100%,5% 76%,5% 24%)}.brand h1{margin:0;font-size:27px;letter-spacing:-1px;font-weight:900}.brand h1 span{color:var(--green)}.owner{color:#afbdca;letter-spacing:2px;font-size:12px;font-weight:800}.owner b{color:var(--green)}
+.searchwrap{flex:1;display:flex;gap:10px;min-width:150px}.searchwrap input,.searchwrap select,.filters select{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:14px 15px;outline:none}.searchwrap input{width:100%;min-width:100px}.searchwrap select{width:190px}.topactions{display:flex;gap:10px}.square{height:48px;width:48px;border:1px solid var(--line);background:var(--panel2);border-radius:12px;font-size:21px}
+.layout{display:grid;grid-template-columns:245px minmax(480px,1fr) 385px;min-height:calc(100vh - 90px)}.sidebar{border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:7px}.nav{border:1px solid transparent;background:transparent;text-align:left;padding:13px 15px;border-radius:12px;color:#b7c5d4;font-weight:650;display:flex;gap:14px;align-items:center}.nav .ico{font-size:21px;width:25px;text-align:center}.nav:hover{background:#10221f}.nav.active{color:var(--green);background:linear-gradient(100deg,#003d2d,#06221e);border-color:#07553f}.sidebottom{margin-top:auto;display:grid;gap:10px}.mini-card{border:1px solid var(--line);background:linear-gradient(140deg,#0e1b27,#071019);padding:14px;border-radius:14px}.mini-title{font-weight:850}.pill{display:inline-block;background:var(--green);color:#00170f;font-size:11px;font-weight:900;padding:5px 9px;border-radius:7px;margin-top:6px}.muted{color:var(--muted)}.main{padding:18px;min-width:0}.version-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:12px}.version-tab{white-space:nowrap;background:var(--panel2);border:1px solid var(--line);padding:11px 15px;border-radius:12px;font-weight:700}.version-tab.active{background:var(--green);border-color:var(--green);color:#00170f}.filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#b3c1cf;font-size:12px;margin:3px 0 14px}.filters select{padding:9px 11px;font-size:13px}.result-count{margin-left:auto;color:#a9b8c7}.result-count b{color:var(--green)}.section-head{display:flex;align-items:center;justify-content:space-between;margin:12px 2px}.section-head h2{font-size:17px;margin:0}.cards{display:grid;gap:9px}.mod-card{display:grid;grid-template-columns:64px minmax(120px,1fr) 145px 145px;gap:14px;align-items:center;border:1px solid var(--line);background:linear-gradient(110deg,#09121b,#060d14);padding:14px;border-radius:16px;min-width:0;transition:.15s}.mod-card:hover,.mod-card.selected{border-color:#087c59;box-shadow:0 0 0 1px #073b2e}.mod-icon{height:64px;width:64px;border-radius:13px;background:#172433;object-fit:cover;display:grid;place-items:center;font-size:28px;font-weight:900;color:var(--green)}.mod-icon img{height:100%;width:100%;object-fit:cover;border-radius:13px}.mod-info{min-width:0}.mod-name{font-size:18px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mod-author{font-size:12px;color:var(--muted);font-weight:500;margin-left:5px}.desc{color:#aab9c8;font-size:13px;margin:4px 0 7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.tags{display:flex;gap:5px;flex-wrap:wrap}.tag{font-size:11px;background:#17232f;border:1px solid #243341;color:#c6d3df;padding:4px 8px;border-radius:7px}.stats{display:flex;gap:10px;color:#b8c5d1;font-size:12px;justify-content:center}.download-col{display:grid;gap:7px}.loader-select{background:#111e2a;border:1px solid #263645;color:#eaf2f8;border-radius:9px;padding:9px;font-size:12px;width:100%}.download{border:0;background:linear-gradient(100deg,var(--green),#00d99a);color:#002015;border-radius:10px;padding:12px 10px;font-weight:900;width:100%}.download:hover{filter:brightness(1.1)}.outline{border:1px solid var(--line);background:#0c1722;border-radius:10px;padding:10px;font-weight:700}.detail{border-left:1px solid var(--line);padding:18px 14px;background:#050b12;min-width:0}.detail-banner{height:190px;border-radius:15px;overflow:hidden;background:linear-gradient(135deg,#0c392b,#12212d);position:relative;display:grid;place-items:center;border:1px solid #1a3a35}.detail-banner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.banner-title{position:relative;text-shadow:0 3px 12px #000;font-size:34px;font-weight:950;letter-spacing:1px}.detail h2{margin:14px 0 2px;font-size:22px}.detail-desc{color:#aebdcb;font-size:14px}.detail-stats{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:15px 0;color:#aebdcb;font-size:12px;gap:8px}.detail-stats strong{display:block;color:#fff;font-size:16px}.big-download{margin:14px 0 8px;padding:15px}.versions-btn{width:100%}.detail-tabs{display:flex;justify-content:space-around;border-bottom:1px solid var(--line);margin-top:18px}.detail-tabs button{background:none;border:0;padding:12px 5px;color:#aab8c7}.detail-tabs button.active{color:var(--green);border-bottom:2px solid var(--green)}.detail-content{font-size:13px;color:#c1cdd8;padding:14px 2px}.feature{margin:7px 0}.feature:before{content:"●";color:var(--green);margin-right:8px}.status{color:#9babb9;font-size:13px;padding:18px;text-align:center}.error{color:#ff9d9d}.footer{color:#66798a;font-size:11px;text-align:center;padding:20px}
+@media(max-width:1250px){.layout{grid-template-columns:205px minmax(400px,1fr)}.detail{display:none}.brand{min-width:285px}.brand h1{font-size:22px}.mod-card{grid-template-columns:55px minmax(100px,1fr) 120px}.stats{display:none}.mod-icon{width:55px;height:55px}}
+@media(max-width:760px){.topbar{height:auto;flex-wrap:wrap;padding:12px}.brand{min-width:0;width:100%}.searchwrap{order:3;flex-basis:100%}.topactions{margin-left:auto;position:absolute;right:12px;top:15px}.brand h1{font-size:19px}.owner{font-size:10px}.layout{display:block}.sidebar{display:flex;flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.nav{white-space:nowrap;padding:10px}.nav .ico{font-size:17px}.sidebottom{display:none}.main{padding:10px}.mod-card{grid-template-columns:48px minmax(0,1fr) 105px;gap:9px;padding:10px}.mod-icon{width:48px;height:48px}.mod-name{font-size:15px}.mod-author{display:block;margin:0}.desc{font-size:12px}.download-col{grid-column:3;grid-row:1}.loader-select{font-size:10px;padding:7px}.download{font-size:11px;padding:10px 5px}.filters{gap:6px}.filters select{max-width:130px}.result-count{margin-left:0;width:100%}}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">✦ UNKNOWN CLIENT</div>
-  <div class="owner">MINECRAFT MOD HUB<br><strong>👑 OWNER: AADRASH</strong></div>
+<header class="topbar">
+  <div class="brand"><div class="logo">⬡</div><div><h1>UNKNOWN <span>CLIENT</span></h1><div class="owner">OWNER : <b>AADRASH</b></div></div></div>
+  <div class="searchwrap"><input id="search" placeholder="⌕  Search mods, shaders, resource packs..." autocomplete="off"><select id="topVersion" aria-label="Minecraft version"><option value="">All Versions</option></select></div>
+  <div class="topactions"><button class="square" title="Settings" onclick="alert('Settings panel coming soon')">⚙</button><button class="square" title="Notifications" onclick="alert('You are all caught up!')">♧</button></div>
 </header>
-<nav>
-  <a href="#home">Home</a><a href="#library">Mod Library</a><a href="#launcher">Launcher</a>
-</nav>
-<main>
-<section class="hero" id="home">
-  <div class="eyebrow">YOUR GAME. YOUR STYLE.</div>
-  <h1>Upgrade Your<br><span>Minecraft.</span></h1>
-  <p>Find mods, shaders, resource packs and modpacks in one place. Search community projects and download available files.</p>
-  <a class="btn primary" href="#library">EXPLORE LIBRARY ↓</a>
-  <a class="btn" href="#launcher">OUR LAUNCHER</a>
-</section>
-
-<section class="section" id="library">
-  <div class="heading"><h2>Discover Projects</h2><span class="tag">LIVE MODRINTH SEARCH</span></div>
-  <p>Choose a category and Minecraft version, then search. Download links point to files hosted by the project platform.</p>
-  <div class="controls">
-    <input id="query" type="search" placeholder="Search Sodium, Iris, shaders..." aria-label="Search projects">
-    <select id="type" aria-label="Project category">
-      <option value="mod">Mods</option><option value="shader">Shaders</option><option value="resourcepack">Resource Packs</option><option value="modpack">Modpacks</option>
-    </select>
-    <select id="gameVersion" aria-label="Minecraft version">
-      <option value="">Any Minecraft version</option><option>1.21.8</option><option>1.21.7</option><option>1.21.6</option><option>1.21.5</option><option>1.21.4</option><option>1.21.3</option><option>1.21.1</option><option>1.20.6</option><option>1.20.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option><option>1.16.5</option><option>1.8.9</option>
-    </select>
-    <button class="btn primary" id="searchBtn">SEARCH</button>
+<div class="layout">
+<aside class="sidebar">
+  <button class="nav active" data-kind="mod"><span class="ico">◈</span> Mods</button>
+  <button class="nav" data-kind="shader"><span class="ico">☼</span> Shaders</button>
+  <button class="nav" data-kind="resourcepack"><span class="ico">◫</span> Resource Packs</button>
+  <button class="nav" data-kind="modpack"><span class="ico">▦</span> Modpacks</button>
+  <button class="nav" data-kind="client"><span class="ico">⬡</span> Clients</button>
+  <button class="nav" data-kind="datapack"><span class="ico">▤</span> Datapacks</button>
+  <button class="nav" data-kind="world"><span class="ico">◇</span> Worlds</button>
+  <button class="nav" data-kind="plugin"><span class="ico">✣</span> Plugins</button>
+  <button class="nav" data-kind="skin"><span class="ico">▣</span> Skins</button>
+  <button class="nav" data-kind="tool"><span class="ico">🔧</span> Tools</button>
+  <div class="sidebottom">
+    <div class="mini-card"><div class="mini-title">⬡ UNKNOWN CLIENT</div><div class="muted">Launcher</div><span class="pill">COMING SOON</span><p class="muted" style="font-size:12px;margin-bottom:0">A better way to play Minecraft</p></div>
+    <div class="mini-card">💬 <b>Community & Support</b><div class="muted" style="font-size:12px">UNKNOWN CLIENT</div></div>
   </div>
-  <p id="status" role="status" aria-live="polite">Loading projects…</p>
-  <div id="results" class="grid"></div>
-</section>
-
-<section class="section" id="launcher">
-  <h2>UNKNOWN CLIENT Launcher</h2>
-  <div class="launcher">
-    <span class="launcher-status">● WINDOWS LAUNCHER IN DEVELOPMENT</span>
-    <h3>Your Minecraft. Your setup.</h3>
-    <p>Planned features: version profiles, compatible mod management, Fabric/Forge setup and a custom dark interface.</p>
-    <button class="btn" disabled>LAUNCHER DOWNLOAD — COMING SOON</button>
-    <p class="tiny">The launcher download will be enabled when a real, tested Windows installer is available.</p>
-  </div>
-</section>
+</aside>
+<main class="main">
+  <div class="version-tabs" id="versionTabs"></div>
+  <div class="filters"><span>Sort by:</span><select id="sort"><option value="relevance">Relevance</option><option value="downloads">Most downloaded</option><option value="updated">Recently updated</option><option value="newest">Newest</option></select><span>Game Version:</span><select id="filterVersion"><option value="">All</option></select><span>Loader:</span><select id="loader"><option value="">All</option><option>fabric</option><option>forge</option><option>neoforge</option><option>quilt</option><option>liteloader</option></select><span class="result-count" id="count">Loading catalog…</span></div>
+  <div class="section-head"><h2 id="heading">Popular Mods</h2><span class="muted" style="font-size:12px">Powered by public Modrinth API</span></div>
+  <div class="cards" id="cards"><div class="status">Loading Minecraft projects…</div></div>
+  <div class="footer">UNKNOWN CLIENT · OWNER AADRASH · Community projects belong to their respective creators.</div>
 </main>
-<footer>
-  <strong>✦ UNKNOWN CLIENT</strong>
-  <p>Created &amp; Owned by Aadrash</p>
-  <p>Independent community project. Not affiliated with Mojang Studios, Microsoft, Lunar Client or Modrinth. Minecraft and third-party project names belong to their respective owners.</p>
-</footer>
+<aside class="detail" id="detail"><div class="detail-banner"><div class="banner-title">UNKNOWN CLIENT</div></div><h2>Choose a project</h2><div class="detail-desc">Select a mod to view its details and download options.</div><div class="detail-content">Browse community mods, shaders, resource packs and modpacks.</div></aside>
+</div>
 <script>
+const API='https://api.modrinth.com/v2';
+const versions=['1.21.11','1.21.10','1.21.9','1.21.8','1.21.7','1.21.6','1.21.5','1.21.4','1.21.3','1.21.1','1.20.6','1.20.4','1.20.1','1.19.4','1.18.2','1.16.5','1.12.2','1.8.9'];
+const kinds={mod:'mod',shader:'shader',resourcepack:'resourcepack',modpack:'modpack',client:'mod',datapack:'datapack',world:'world',plugin:'plugin',skin:'resourcepack',tool:'mod'};
+let kind='mod',selected=null,projects=[],requestId=0;
 const $=id=>document.getElementById(id);
-const queryInput=$("query"), typeInput=$("type"), versionInput=$("gameVersion"), results=$("results"), statusText=$("status");
-let requestNumber=0;
-
-function addText(parent,tag,text,className){const el=document.createElement(tag);if(className)el.className=className;el.textContent=text;parent.appendChild(el);return el;}
-
-async function downloadProject(project,button){
-  const old=button.textContent;button.disabled=true;button.textContent="Finding files…";
-  try{
-    const params=new URLSearchParams();
-    const gameVersion=versionInput.value;
-    if(gameVersion)params.set("game_versions",JSON.stringify([gameVersion]));
-    const loader=window.prompt("Optional loader filter: type fabric, forge, quilt, neoforge, or leave blank for any loader.","");
-    if(loader && ["fabric","forge","quilt","neoforge"].includes(loader.toLowerCase())){
-      params.set("loaders",JSON.stringify([loader.toLowerCase()]));
-    }
-    const url="https://api.modrinth.com/v2/project/"+encodeURIComponent(project.project_id)+"/version"+(params.toString()?"?"+params.toString():"");
-    const response=await fetch(url);
-    if(!response.ok)throw new Error("Could not fetch project versions");
-    const versions=await response.json();
-    let candidates=versions.filter(v=>Array.isArray(v.files)&&v.files.length);
-    if(!candidates.length)throw new Error("No downloadable files found");
-    const selected=candidates[0];
-    const file=selected.files.find(f=>f.primary)||selected.files[0];
-    if(!file||!file.url)throw new Error("No file URL found");
-    const anchor=document.createElement("a");
-    anchor.href=file.url;anchor.target="_blank";anchor.rel="noopener noreferrer";
-    anchor.download=file.filename||"minecraft-project-file";
-    document.body.appendChild(anchor);anchor.click();anchor.remove();
-    button.textContent="Download started";
-    setTimeout(()=>{button.textContent=old;button.disabled=false;},2200);
-  }catch(error){
-    button.textContent="Try again";
-    alert("Could not start download. This project may not have a matching version. Try another Minecraft version or open the project page.");
-    setTimeout(()=>{button.textContent=old;button.disabled=false;},1200);
-  }
-}
-
-function createCard(project){
-  const card=document.createElement("article");card.className="card";
-  if(project.icon_url){
-    const img=document.createElement("img");img.src=project.icon_url;img.alt="";img.loading="lazy";
-    img.onerror=()=>img.remove();card.appendChild(img);
-  }
-  const body=document.createElement("div");body.className="card-body";
-  addText(body,"span",project.project_type.toUpperCase(),"tag");
-  addText(body,"h3",project.title);
-  addText(body,"p",project.description||"No description available.");
-  addText(body,"p","Downloads: "+Number(project.downloads||0).toLocaleString(),"tiny");
-  const actions=document.createElement("div");actions.className="card-actions";
-  const download=document.createElement("button");download.className="btn primary";download.textContent="⬇ DOWNLOAD";
-  download.addEventListener("click",()=>downloadProject(project,download));
-  const view=document.createElement("a");view.className="btn";view.textContent="DETAILS ↗";
-  view.href="https://modrinth.com/"+encodeURIComponent(project.project_type)+"/"+encodeURIComponent(project.slug);
-  view.target="_blank";view.rel="noopener noreferrer";
-  actions.append(download,view);body.appendChild(actions);
-  addText(body,"p","Select a Minecraft version above before downloading for a better compatibility match.","tiny");
-  card.appendChild(body);return card;
-}
-
-async function loadProjects(){
-  const id=++requestNumber;results.replaceChildren();statusText.textContent="Searching projects…";
-  const params=new URLSearchParams({query:queryInput.value.trim(),facets:JSON.stringify([[`project_type:${typeInput.value}`]]),limit:"18",index:"relevance"});
-  try{
-    const response=await fetch("https://api.modrinth.com/v2/search?"+params.toString());
-    if(!response.ok)throw new Error("Search failed");
-    const data=await response.json();if(id!==requestNumber)return;
-    if(!data.hits||!data.hits.length){statusText.textContent="No projects found. Try a different search.";return;}
-    for(const project of data.hits)results.appendChild(createCard(project));
-    statusText.textContent=data.hits.length+" projects found. Select a card's DOWNLOAD button to fetch a file.";
-  }catch(error){
-    if(id!==requestNumber)return;
-    statusText.textContent="Could not load projects. Check your internet connection and try again.";
-  }
-}
-$("searchBtn").addEventListener("click",loadProjects);
-queryInput.addEventListener("keydown",e=>{if(e.key==="Enter")loadProjects();});
-typeInput.addEventListener("change",loadProjects);
-loadProjects();
+function fillVersions(){['topVersion','filterVersion'].forEach(id=>versions.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;$(id).appendChild(o)}));versions.slice(0,9).forEach(v=>{const b=document.createElement('button');b.className='version-tab';b.textContent=v;b.onclick=()=>{ $('topVersion').value=v;$('filterVersion').value=v;loadProjects()};$('versionTabs').appendChild(b)});const all=document.createElement('button');all.className='version-tab active';all.textContent='All';all.onclick=()=>{$('topVersion').value='';$('filterVersion').value='';loadProjects()};$('versionTabs').prepend(all)}
+function activeTab(){document.querySelectorAll('.version-tab').forEach(b=>b.classList.toggle('active',(b.textContent==='All'&&!$('topVersion').value)||b.textContent===$('topVersion').value))}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fmt(n){if(!n)return '—';if(n>=1e6)return (n/1e6).toFixed(1)+'M';if(n>=1e3)return (n/1e3).toFixed(1)+'K';return n}
+function queryParams(){const p=new URLSearchParams();p.set('limit','30');p.set('offset','0');p.set('index',$('sort').value);const q=$('search').value.trim();if(q)p.set('query',q);const f=[];f.push(`project_type:"${kinds[kind]||'mod'}"`);const v=$('filterVersion').value||$('topVersion').value;if(v)f.push(`versions:"${v}"`);const l=$('loader').value;if(l)f.push(`categories:"${l}"`);p.set('facets',JSON.stringify([f]));return p}
+async function loadProjects(){const id=++requestId;activeTab();$('heading').textContent='Popular '+({mod:'Mods',shader:'Shaders',resourcepack:'Resource Packs',modpack:'Modpacks',client:'Clients',datapack:'Datapacks',world:'Worlds',plugin:'Plugins',skin:'Skins',tool:'Tools'}[kind]||'Projects');$('cards').innerHTML='<div class="status">Loading projects…</div>';try{const r=await fetch(API+'/search?'+queryParams().toString());if(!r.ok)throw new Error('API returned '+r.status);const data=await r.json();if(id!==requestId)return;projects=data.hits||[];$('count').innerHTML='Showing <b>'+Number(data.total_hits||projects.length).toLocaleString()+'</b> projects';renderCards()}catch(e){if(id!==requestId)return;$('count').textContent='Catalog unavailable';$('cards').innerHTML='<div class="status error">Could not load projects. Check your internet connection and refresh. ('+esc(e.message)+')</div>'}}
+function renderCards(){if(!projects.length){$('cards').innerHTML='<div class="status">No projects found. Try another search or version.</div>';return} $('cards').innerHTML=projects.map((p,i)=>{const icon=p.icon_url?`<img src="${esc(p.icon_url)}" alt="">`:'⬡';const tags=(p.display_categories||p.categories||[]).slice(0,3).map(x=>`<span class="tag">${esc(x)}</span>`).join('');return `<article class="mod-card ${selected&&selected.project_id===p.project_id?'selected':''}" data-i="${i}"><div class="mod-icon">${icon}</div><div class="mod-info"><div class="mod-name">${esc(p.title||p.slug)} <span class="mod-author">by ${esc(p.author||'Community creator')}</span></div><div class="desc">${esc(p.description||'Minecraft community project.')}</div><div class="tags">${tags}<span class="tag">${esc(p.versions?.[0]||'Minecraft')}</span></div></div><div class="stats"><span>⇩ ${fmt(p.downloads)}</span><span>♡ ${fmt(p.follows)}</span></div><div class="download-col"><select class="loader-select" data-loader="${i}" aria-label="Loader"><option value="">Default version</option><option value="fabric">Fabric</option><option value="forge">Forge</option><option value="neoforge">NeoForge</option><option value="quilt">Quilt</option></select><button class="download" data-download="${i}">↓ Download</button></div></article>`}).join('');document.querySelectorAll('.mod-card').forEach(el=>el.addEventListener('click',e=>{if(e.target.closest('button')||e.target.closest('select'))return;selectProject(projects[+el.dataset.i])}));document.querySelectorAll('[data-download]').forEach(b=>b.addEventListener('click',()=>downloadProject(projects[+b.dataset.download],document.querySelector(`[data-loader="${b.dataset.download}"]`).value,b)));if(!selected&&projects[0])selectProject(projects[0])}
+async function selectProject(p){selected=p;document.querySelectorAll('.mod-card').forEach(el=>el.classList.toggle('selected',projects[+el.dataset.i]?.project_id===p.project_id));const detail=$('detail');detail.innerHTML=`<div class="detail-banner">${p.featured_gallery?`<img src="${esc(p.featured_gallery)}" alt="">`:''}<div class="banner-title">${esc((p.title||'Minecraft').toUpperCase())}</div></div><h2>${esc(p.title||p.slug)} <span style="color:#48a8ff">●</span></h2><div class="muted">By ${esc(p.author||'Community creator')}</div><p class="detail-desc">${esc(p.description||'Minecraft community project.')}</p><div class="tags">${(p.display_categories||p.categories||[]).slice(0,5).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div><div class="detail-stats"><div><strong>${fmt(p.downloads)}</strong>Downloads</div><div><strong>${fmt(p.follows)}</strong>Followers</div><div><strong>${p.date_modified?new Date(p.date_modified).toLocaleDateString():'—'}</strong>Updated</div></div><button class="download big-download" id="detailDownload">↓ Download latest version</button><button class="outline versions-btn" id="allVersions">☷ View All Versions</button><div class="detail-tabs"><button class="active" data-tab="Description">Description</button><button data-tab="Gallery">Gallery</button><button data-tab="Versions">Versions</button></div><div class="detail-content" id="detailContent">${esc(p.description||'Community-created Minecraft content.')}<p class="feature">Check compatibility with your Minecraft version.</p><p class="feature">Read the creator's notes before installing.</p></div>`;$('detailDownload').onclick=()=>downloadProject(p,'',$('detailDownload'));$('allVersions').onclick=()=>showVersions(p);document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));$('detailContent').innerHTML=b.dataset.tab==='Versions'?'<button class="outline" id="showVersionsAgain">Load available versions</button>':b.dataset.tab==='Gallery'?'Gallery images are supplied by the project creator.':'<p>'+esc(p.description||'Community-created Minecraft content.')+'</p>';if(b.dataset.tab==='Versions')$('showVersionsAgain').onclick=()=>showVersions(p)})}
+async function showVersions(p){$('detailContent').textContent='Loading versions…';try{const r=await fetch(API+'/project/'+encodeURIComponent(p.project_id)+'/version');if(!r.ok)throw new Error();const list=await r.json();$('detailContent').innerHTML=list.slice(0,20).map(v=>`<div style="padding:9px 0;border-bottom:1px solid var(--line)"><b>${esc(v.version_number)}</b><div class="muted">${esc((v.game_versions||[]).join(', '))} · ${esc((v.loaders||[]).join(', '))}</div><button class="outline" data-vfile="${esc(v.id)}">Download this version</button></div>`).join('')||'No versions found';document.querySelectorAll('[data-vfile]').forEach(b=>b.onclick=()=>downloadSpecificVersion(p,b.dataset.vfile,b))}catch(e){$('detailContent').textContent='Unable to load versions right now.'}}
+async function downloadSpecificVersion(p,versionId,btn){btn.disabled=true;btn.textContent='Preparing…';try{const r=await fetch(API+'/version/'+encodeURIComponent(versionId));if(!r.ok)throw new Error();const v=await r.json();const file=v.files?.find(f=>f.primary)||v.files?.[0];if(!file)throw new Error('No file attached');startDownload(file.url,file.filename)}catch(e){alert('Could not start download. Try again.')}finally{btn.disabled=false;btn.textContent='Download this version'}}
+async function downloadProject(p,loader,btn){const old=btn.textContent;btn.disabled=true;btn.textContent='Finding file…';try{let url=API+'/project/'+encodeURIComponent(p.project_id)+'/version';const params=new URLSearchParams();params.set('game_versions',JSON.stringify([$('filterVersion').value||$('topVersion').value].filter(Boolean)));params.set('loaders',JSON.stringify([loader].filter(Boolean)));params.set('featured','false');url+='?'+params.toString();let r=await fetch(url);if(!r.ok)throw new Error();let list=await r.json();if(!list.length){r=await fetch(API+'/project/'+encodeURIComponent(p.project_id)+'/version');if(!r.ok)throw new Error();list=await r.json()}const v=list.find(x=>x.files?.length);const file=v?.files?.find(f=>f.primary)||v?.files?.[0];if(!file)throw new Error('No downloadable file');startDownload(file.url,file.filename)}catch(e){alert('Download could not start. This project may have no downloadable file.');}finally{btn.disabled=false;btn.textContent=old}}
+function startDownload(url,filename){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.download=filename||'';document.body.appendChild(a);a.click();a.remove()}
+let timer; $('search').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(loadProjects,350)});['topVersion','filterVersion','loader','sort'].forEach(id=>$(id).addEventListener('change',()=>{if(id==='topVersion')$('filterVersion').value=$('topVersion').value;else if(id==='filterVersion')$('topVersion').value=$('filterVersion').value;loadProjects()}));document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));kind=b.dataset.kind;selected=null;loadProjects()}));fillVersions();loadProjects();
 </script>
 </body>
 </html>
