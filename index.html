@@ -14,6 +14,8 @@
 
 .modal-backdrop{position:fixed;inset:0;background:#000b;backdrop-filter:blur(7px);z-index:20;display:none;align-items:center;justify-content:center;padding:18px}
 .modal-backdrop.open{display:flex}.download-modal{width:min(480px,100%);background:linear-gradient(145deg,#0e1b28,#060c13);border:1px solid #1b3a4a;border-radius:20px;padding:23px;box-shadow:0 24px 90px #000b}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.modal-head h2{margin:0;font-size:22px}.close-modal{background:#142331;border:1px solid var(--line);border-radius:9px;width:38px;height:38px;font-size:20px}.modal-project{display:flex;gap:12px;align-items:center;margin:18px 0;padding:12px;background:#09131d;border:1px solid var(--line);border-radius:12px}.modal-project img{width:48px;height:48px;border-radius:10px;object-fit:cover}.modal-label{font-size:13px;color:#b8c6d4;font-weight:800;margin:17px 0 7px}.modal-select{width:100%;padding:13px;background:#101e2b;border:1px solid #294052;border-radius:11px;color:#f3f7fb}.modal-help{font-size:12px;color:#94a8b8;margin-top:8px}.modal-download{margin-top:18px}.modal-download:disabled{opacity:.4;cursor:not-allowed}
+
+.ai-finder-backdrop{position:fixed;inset:0;background:#000c;backdrop-filter:blur(8px);z-index:30;display:none;align-items:center;justify-content:center;padding:16px}.ai-finder-backdrop.open{display:flex}.ai-finder{width:min(650px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#0e1c29,#060c13);border:1px solid #185b48;border-radius:20px;padding:24px;box-shadow:0 25px 100px #000c}.ai-finder h2{margin:0;font-size:25px}.ai-sub{color:#9fb1c1;margin:7px 0 18px;font-size:13px}.ai-text{width:100%;min-height:115px;resize:vertical;background:#09131d;color:#f3f7fb;border:1px solid #294052;border-radius:12px;padding:14px;outline:none}.ai-upload{display:block;border:1px dashed #2b6d5a;border-radius:12px;padding:16px;margin-top:12px;background:#08151a;color:#b9c9d5}.ai-upload input{display:block;margin-top:10px;max-width:100%}.ai-preview{max-width:100%;max-height:180px;display:none;margin-top:12px;border-radius:10px;border:1px solid var(--line)}.ai-note{font-size:12px;color:#8fa3b4;margin-top:9px}.ai-actions{display:flex;gap:10px;margin-top:16px}.ai-actions button{flex:1}.ai-close{background:#142331;border:1px solid var(--line);border-radius:10px;padding:12px}.ai-result{font-size:13px;color:#b7c7d4;margin-top:12px}
 @media(max-width:1250px){.layout{grid-template-columns:205px minmax(400px,1fr)}.detail{display:none}.brand{min-width:285px}.brand h1{font-size:22px}.mod-card{grid-template-columns:55px minmax(100px,1fr) 120px}.stats{display:none}.mod-icon{width:55px;height:55px}}
 @media(max-width:760px){.topbar{height:auto;flex-wrap:wrap;padding:12px}.brand{min-width:0;width:100%}.searchwrap{order:3;flex-basis:100%}.topactions{margin-left:auto;position:absolute;right:12px;top:15px}.brand h1{font-size:19px}.owner{font-size:10px}.layout{display:block}.sidebar{display:flex;flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.nav{white-space:nowrap;padding:10px}.nav .ico{font-size:17px}.sidebottom{display:none}.main{padding:10px}.mod-card{grid-template-columns:48px minmax(0,1fr) 105px;gap:9px;padding:10px}.mod-icon{width:48px;height:48px}.mod-name{font-size:15px}.mod-author{display:block;margin:0}.desc{font-size:12px}.download-col{grid-column:3;grid-row:1}.loader-select{font-size:10px;padding:7px}.download{font-size:11px;padding:10px 5px}.filters{gap:6px}.filters select{max-width:130px}.result-count{margin-left:0;width:100%}}
 </style>
@@ -22,7 +24,7 @@
 <header class="topbar">
   <div class="brand"><div class="logo">⬡</div><div><h1>UNKNOWN <span>CLIENT</span></h1><div class="owner">OWNER : <b>AADRASH</b></div></div></div>
   <div class="searchwrap"><input id="search" placeholder="⌕  Search mods, shaders, resource packs..." autocomplete="off"><select id="topVersion" aria-label="Minecraft version"><option value="">All Versions</option></select></div>
-  <div class="topactions"><button class="square" title="Settings" onclick="alert('Settings panel coming soon')">⚙</button><button class="square" title="Notifications" onclick="alert('You are all caught up!')">♧</button></div>
+  <div class="topactions"><button class="square" id="openAIFinder" title="AI Mod Finder" style="color:var(--green)">✦</button><button class="square" title="Settings" onclick="alert('Settings panel coming soon')">⚙</button><button class="square" title="Notifications" onclick="alert('You are all caught up!')">♧</button></div>
 </header>
 <div class="layout">
 <aside class="sidebar">
@@ -49,6 +51,21 @@
   <div class="footer">UNKNOWN CLIENT · OWNER AADRASH · Community projects belong to their respective creators.</div>
 </main>
 <aside class="detail" id="detail"><div class="detail-banner"><div class="banner-title">UNKNOWN CLIENT</div></div><h2>Choose a project</h2><div class="detail-desc">Select a mod to view its details and download options.</div><div class="detail-content">Browse community mods, shaders, resource packs and modpacks.</div></aside>
+</div>
+<div class="ai-finder-backdrop" id="aiFinderModal" role="dialog" aria-modal="true" aria-labelledby="aiFinderTitle">
+ <div class="ai-finder">
+  <div class="modal-head"><h2 id="aiFinderTitle">✦ AI Mod Finder</h2><button class="close-modal" id="closeAIFinder" aria-label="Close">×</button></div>
+  <p class="ai-sub">Describe what the mod does, remember a feature, or add a screenshot as a clue. UNKNOWN CLIENT will search the public Minecraft project catalog.</p>
+  <div class="modal-label">What do you remember about the mod?</div>
+  <textarea class="ai-text" id="aiDescription" placeholder="Example: a mod that shows durability above items, makes chunks load faster, adds realistic water shaders…"></textarea>
+  <label class="ai-upload">📷 Add a screenshot or image (optional)
+   <input type="file" id="aiImage" accept="image/*">
+   <img id="aiImagePreview" class="ai-preview" alt="Selected image preview">
+  </label>
+  <div class="ai-note">Tip: include any visible mod name, feature, Minecraft version, or loader. Image upload is currently used as a visual clue; this static website does not yet have image-understanding AI connected.</div>
+  <div class="ai-actions"><button class="ai-close" id="cancelAIFinder">Cancel</button><button class="download" id="runAIFinder">✦ Find this mod</button></div>
+  <div class="ai-result" id="aiFinderStatus"></div>
+ </div>
 </div>
 <div class="modal-backdrop" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
  <div class="download-modal">
@@ -170,6 +187,30 @@ document.addEventListener('click',function(e){
  if(b){e.preventDefault();e.stopPropagation();const p=projects[Number(b.dataset.download)];if(p)openDownloadModal(p);return;}
  if(e.target.closest('#detailDownload')){e.preventDefault();e.stopPropagation();if(selected)openDownloadModal(selected);}
 },true);
+
+// AI-style discovery helper: converts the user's description into a focused catalog search.
+const aiModal=$('aiFinderModal');
+function openAIFinder(){aiModal.classList.add('open');$('aiFinderStatus').textContent='';}
+function closeAIFinder(){aiModal.classList.remove('open');}
+$('openAIFinder').addEventListener('click',openAIFinder);
+$('closeAIFinder').addEventListener('click',closeAIFinder);
+$('cancelAIFinder').addEventListener('click',closeAIFinder);
+aiModal.addEventListener('click',e=>{if(e.target===aiModal)closeAIFinder();});
+$('aiImage').addEventListener('change',()=>{
+ const f=$('aiImage').files&&$('aiImage').files[0],img=$('aiImagePreview');
+ if(!f){img.style.display='none';img.removeAttribute('src');return}
+ if(!f.type.startsWith('image/')){alert('Please choose an image file.');return}
+ const reader=new FileReader();reader.onload=()=>{img.src=reader.result;img.style.display='block'};reader.readAsDataURL(f);
+});
+$('runAIFinder').addEventListener('click',()=>{
+ const description=$('aiDescription').value.trim();
+ if(!description){$('aiFinderStatus').textContent='Please describe at least one thing you remember about the mod. Image-only recognition is not connected yet.';return}
+ $('search').value=description;
+ // Use the current category and filters; make the search result area visible after search.
+ kind='mod';document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.kind==='mod'));
+ closeAIFinder();loadProjects();
+ window.scrollTo({top:0,behavior:'smooth'});
+});
 fillVersions();loadProjects();
 </script>
 </body>
